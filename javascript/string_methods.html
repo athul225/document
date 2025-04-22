@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Length Example</title>
+</head>
+<body>
+
+    <script>
+        let str = '   Hello   ';
+
+        console.log(str.length); 
+        console.log(str.toUpperCase())
+        console.log(str.toLowerCase())
+        console.log(str.trim())
+        console.log(str.trimRight())
+        console.log(str.trimLeft())
+        console.log(str.substring(3,6))
+
+        let str2='Good Morning'
+        console.log(str2.replace('Morning','Afternoon'))
+
+        let str3='Hello GoodMorning'
+        console.log(str3.startsWith('Hello'))
+        console.log(str3.endsWith('Hello'))
+        console.log(str3.split('o'))
+        console.log(str3.split(''))
+
+        let str4='Apple,Orange,Grape'
+        console.log(str4.split(','))
+
+        arr=['Apple','Orange']
+        console.log(arr.join(','))
+
+        let str5='Hello'
+        length=str5.length
+        for(let i=0;i<length;i++){
+            console.log(str5[i])
+        }
+
+        let str6='Hello'
+        length=str6.length
+        for(let i=length-1;i>=0;i--){
+            console.log(str6[i])
+        }
+        
+        let str7="MALAYALAM"
+        let str77=''
+        length=str7.length
+        for(let i=length-1;i>=0;i--){
+            str77+=str77[i]
+        }
+        console.log(str77)
+       
+    
+    </script>
+    
+</body>
+</html>
