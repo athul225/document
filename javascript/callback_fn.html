@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function greet(name,callback){
+            console.log(name)
+            callback()
+        }
+        function gdmng(){
+            console.log("good morning")
+        }
+        greet(Athul,'good morning')
+
+
+        function calculate(a,b,callback){
+            return callback(a,b)
+        }
+        function add(x,y){
+            return x+y
+        }
+        function multiply(x,y){
+            return x*y
+        }
+        console.log(calculate(2,5,add))
+        console.log(calculate(3,4,multiply))
+    </script>
+</body>
+</html>

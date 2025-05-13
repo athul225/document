@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product List</title>
+  <style>
+    .product {
+      margin: 4px;
+      background-color: rgb(103, 104, 104);
+      padding: 10px;
+      width: 200px;
+      border-radius: 3px;
+      text-align: center;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: rgb(243, 248, 248);
+      gap: 5px;
+      justify-content: center;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    button {
+      margin-top: 10px;
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+  <main id="main"></main>
+
+  <script>
+    const main = document.getElementById('main');
+
+    fetch('https://dummyjson.com/products')
+      .then(response => response.json())
+      .then(data => {
+        data.products.forEach(product => {
+          const productElement = document.createElement('div');
+          productElement.classList.add('product');
+          productElement.innerHTML = `
+            <p style="color:white;">${product.title}</p>
+            <img src="${product.thumbnail}" alt="${product.title}" />
+            <p style="color:white;">Price: $${product.price}</p>
+            <a href="work_product.html?id=${product.id}">
+              <button>View Product</button>
+            </a>
+          `;
+          main.appendChild(productElement);
+        });
+      })
+      .catch(error => console.log(error));
+  </script>
+</body>
+</html>

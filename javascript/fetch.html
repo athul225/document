@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product{
+            margin-left:4px;
+            background-color:rgb(7, 196, 253);
+            margin-bottom:4px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">click to load data</button>
+    <main id="main" style="display:flex;flex-wrap:wrap;"></main>
+    <script>
+        let main=document.getElementById('main')
+        document.getElementById('btn').addEventListener('click',()=>{
+            fetch('https://dummyjson.com/products')
+            .then(response=>response.json())
+            .then(data=>{
+                console.log(data.products)
+                data.products.forEach((value)=>{
+                    const productElement=document.createElement('div')
+                    productElement.innerHTML=`<p>${value.title}</p>
+                    <img src='${value.thumbnail}'>
+                    <button style="position:relative;bottom:10px; left:-50px;">view product</button>`
+                    productElement.classList.add('product')
+                    main.appendChild(productElement)
+                })
+            })
+            .catch(error=>console.log(error))
+        })
+    </script>
+</body>
+</html>

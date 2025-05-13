@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+class Novavi{
+    constructor(name){
+        this.name=name
+    }
+    software_devs(){
+        console.log(this.name)
+        console.log("Novavi's Devs")
+    }
+}
+class Synnefo extends Novavi{
+    constructor(name,branch){
+        super(name)
+        this.branch=branch
+    }
+    teaching(){
+        console.log(this.branch)
+        
+        console.log("Teaching students to become Devs")
+    }
+}
+class Student extends Synnefo{
+    constructor(name,branch){
+        super(name,branch)
+        console.log('Student Worked')
+    }
+}
+let Std=new Synnefo('amal','EKM')
+Std.teaching()
+Std.software_devs()
+        
+    </script>
+</body>
+</html>

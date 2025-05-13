@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department Filter</title>
+</head>
+<body>
+    
+      <script>
+    const arr = [
+      { id: 101, name: 'jofiya', email: 'jofiya@gmail.com', dep: 'science' },
+      { id: 102, name: 'safeela', email: 'safeela@gmail.com', dep: 'science' },
+      { id: 103, name: 'athul', email: 'athul@gmail.com', dep: 'mechanical' },
+      { id: 104, name: 'martin', email: 'martin@gmail.com', dep: 'computer' }
+    ];
+
+    const main = document.createElement('div');
+    main.setAttribute('style', 'border:2px solid black; padding:20px; width:80%; margin:auto;');
+
+    const input = document.createElement('input');
+    input.placeholder = 'Enter department';
+    input.setAttribute('style', 'margin-right:10px; height:30px; width:200px');
+
+    const button = document.createElement('button');
+    button.innerHTML = 'Submit';
+    button.setAttribute('style', 'height:35px; width:100px');
+
+    const output = document.createElement('div');
+    output.setAttribute('style', 'margin-top:20px;');
+
+    main.appendChild(input);
+    main.appendChild(button);
+    main.appendChild(output);
+    document.body.appendChild(main);
+
+    const renderList = (list) => {
+      return list.map(item => `
+        <div style="padding:8px; margin-bottom:5px; border:1px solid black; border-radius:5px; background-color:#f9f9f9;">
+          <strong>ID:</strong> ${item.id}<br>
+          <strong>Name:</strong> ${item.name}<br>
+          <strong>Email:</strong> ${item.email}<br>
+          <strong>Department:</strong> ${item.dep}
+        </div>
+      `).join('');
+    };
+
+    button.addEventListener('click', function () {
+      const value = input.value.trim().toLowerCase();
+      const filtered = arr.filter(item => item.dep.toLowerCase() === value);
+
+      if (filtered.length > 0) {
+        output.innerHTML = renderList(filtered);
+      } else {
+        output.innerHTML = <p style="color:red;">No matching department found.</p>;
+      }
+    });
+
+    output.innerHTML = renderList(arr);
+  </script>
+</body>
+</html>
